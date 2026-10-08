@@ -12,5 +12,13 @@ public class Card {
     public Colors getColor(){return this.color;}
 
     public int getNumber(){return this.number;}
+
+    @Override
+    public String toString(){
+        return  String.format("Number: %-2s |  Color: %-6s",
+                this.number,
+                this.color
+        );
+    }
 }
 
