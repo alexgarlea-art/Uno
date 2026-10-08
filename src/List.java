@@ -1,52 +1,53 @@
-public class List {
-    private Card head;
-    private Card tail;
+public class List<T> {
+    private Node<T> head;
+    private Node<T> tail;
 
     //Constructor
     public List(){
     }
 
     //Methods
-    public Card getHead(){
+    public Node<T> getHead(){
         return this.head;
     }
 
-    public Card getTail(){
+    public Node<T> getTail(){
         return this.tail;
     }
 
-    public void addHead(int number, Colors color){
+    public void addHead(T value){
         if(this.head == null){
-            this.head = new Card(number, color);
+            this.head = new Node<T>(value);
             this.tail = this.head;
         }else{
-            Card newCard = new Card(number, color);
-            this.head.setPrev(newCard);
+            Node<T> newNode = new Node<T>(value);
+            this.head.setPrev(newNode);
             this.head.getPrev().setNext(this.head);
-            this.head = newCard;
+            this.head = newNode;
         }
     }
 
-    public void addTail(int number, Colors color){
+    public void addTail(T value){
         if(this.tail == null){
-            this.tail = new Card(number, color);
+            this.tail = new Node<T>(value);
             this.head = this.tail;
         }else{
-            Card newCard = new Card(number, color);
-            this.tail.setNext(newCard);
+            Node<T> newNode = new Node<T>(value);
+            this.tail.setNext(newNode);
             this.tail.getNext().setPrev(this.tail);
-            this.tail = newCard;
+            this.tail = newNode;
         }
     }
 
     @Override
     public String toString(){
      StringBuilder string = new StringBuilder();
-     string.append("Head: " + this.head + "\n" + "Tail: " + this.tail + "\n\n");
 
-     Card cur = this.head;
+     Node<T> cur = this.head;
+     int n = 0;
      while(cur != null){
-         string.append(cur);
+         System.out.println("Ciao" + (n++));
+         string.append(cur.toString()).append("\n");
          cur = cur.getNext();
      }
      return string.toString();

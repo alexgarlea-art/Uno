@@ -2,8 +2,10 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Card test = new Card(4, Colors.YELLOW);
-        test.setNext(new Card(7, Colors.RED));
-        System.out.println(test.getNext());
+        List<Card> test = new List<Card>();
+        test.addTail(new Card(9, Colors.RED));
+        test.addTail(new Card(6, Colors.RED));
+        test.addTail(new Card(7, Colors.BLUE));
+        System.out.println(test.toString());
     }
 }

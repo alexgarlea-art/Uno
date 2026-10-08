@@ -1,9 +1,16 @@
 import java.awt.*;
 
-public class Card extends Node{
+public class Card {
+    private final int number;
+    private final Colors color;
+
     public Card(int number, Colors color){
-        super(number, color);
+        this.number = number;
+        this.color = color;
     }
 
+    public Colors getColor(){return this.color;}
 
+    public int getNumber(){return this.number;}
 }
+
